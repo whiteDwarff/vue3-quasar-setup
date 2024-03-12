@@ -39,3 +39,10 @@ quasar build
 
 ### Customize the configuration
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+
+### library 
+- unplugin-vue-router@0.7.0
+- vite-plugin-vue-layout@0.8.0
+- quasar@2.12.0
+- tiptab editor@2.2.4
+- axios@1.2.1
