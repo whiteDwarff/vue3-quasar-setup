@@ -43,6 +43,6 @@ See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-
 ### library 
 - unplugin-vue-router@0.7.0
 - vite-plugin-vue-layout@0.8.0
-- quasar@2.12.0
-- tiptab editor@2.2.4
+- [quasar@2.12.0](https://quasar.dev/)
+- [tiptab editor@2.2.4](https://tiptap.dev/docs/editor/installation/vue3)
 - axios@1.2.1
