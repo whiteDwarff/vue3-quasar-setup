@@ -40,6 +40,16 @@ quasar build
 ### Customize the configuration
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
 
+### npm install 
+```ruby
+npm i
+```
+
+### build 
+```ruby
+npm run dev
+```
+
 ### library 
 - [unplugin-vue-router@0.7.0](https://github.com/posva/unplugin-vue-router)
 - [vite-plugin-vue-layout@0.8.0](https://github.com/whiteDwarff/vite-plugin-vue-layouts)
