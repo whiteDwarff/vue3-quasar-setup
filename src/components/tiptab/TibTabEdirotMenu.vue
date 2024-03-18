@@ -136,11 +136,14 @@ const handleLinkMenu = () => {
   if (url === null) {
     return;
   }
+
   // empty
   if (url === "") {
     props.editor.chain().focus().extendMarkRange("link").unsetLink().run();
+
     return;
   }
+
   // update link
   props.editor
     .chain()
@@ -152,7 +155,10 @@ const handleLinkMenu = () => {
 
 const handleImageMenu = () => {
   const url = window.prompt("URL");
-  if (url) props.editor.chain().focus().setImage({ src: url }).run();
+
+  if (url) {
+    props.editor.chain().focus().setImage({ src: url }).run();
+  }
 };
 </script>
 

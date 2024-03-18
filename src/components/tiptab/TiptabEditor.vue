@@ -1,20 +1,23 @@
 <template>
-  <TiptabEditorMenu :editor="editor" />
-  <q-separator />
-  <editor-content :editor="editor" class="editor__content" />
+  <q-card class="tiptap" flat bordered>
+    <TibTabEdirotMenu :editor="editor" />
+
+    <q-separator />
+
+    <editor-content class="editor__content" :editor="editor" />
+  </q-card>
 </template>
 
 <script setup>
-import { watch } from "vue";
 import { useEditor, EditorContent } from "@tiptap/vue-3";
 import StarterKit from "@tiptap/starter-kit";
 import Placeholder from "@tiptap/extension-placeholder";
 import Link from "@tiptap/extension-link";
 import Image from "@tiptap/extension-image";
+import { watch } from "vue";
+import TibTabEdirotMenu from "./TibTabEdirotMenu.vue";
 
-import TiptabEditorMenu from "./tibtabEditorMenu.vue";
-
-// 상위 컴포넌트에서 v-model 사용
+// 상위 컴포넌트에서 v-model을 통한 바인딩
 const props = defineProps({
   modelValue: {
     type: String,
@@ -28,7 +31,7 @@ const editor = useEditor({
   extensions: [
     StarterKit,
     Placeholder.configure({
-      placeholder: "add contents here",
+      placeholder: "마크다운을 이용해서 편리하게 글을 작성하세요.",
     }),
     Link,
     Image,
@@ -52,7 +55,8 @@ watch(
 );
 </script>
 
-<style>
+<style lang="scss" src="src/css/tiptab.scss"></style>
+<style lang="scss">
 .tiptap p.is-editor-empty:first-child::before {
   color: #adb5bd;
   content: attr(data-placeholder);
@@ -61,10 +65,20 @@ watch(
   pointer-events: none;
 }
 </style>
-<style lang="scss" src="src/css/tibtab.scss"></style>
+<style lang="scss" scoped>
+.editor__content {
+  flex: 1;
+  display: flex;
+  overflow-y: auto;
+  padding: 16px 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  height: 400px;
+}
+</style>
 <!-- 
 ❗️ component 호출 
-import TiptabEditor from 'src/components/tiptab/TiptabEditor.vue';
+  - import TiptabEditor from 'src/components/tiptab/TiptabEditor.vue';
 
 ❗️ component 사용
   - tiptab이 <form> 요새에 있는 경우 @submit.prevent 필수
