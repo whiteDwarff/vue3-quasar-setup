@@ -1,6 +1,11 @@
 import { boot } from "quasar/wrappers";
 import axios from "axios";
 
+/**
+ * CORS
+ * - view <-> server 통신간 `/api` 경로 필수
+ * - default 값으로, 사용 시 이후 경로부터 작성
+ */
 const api = axios.create({ baseURL: "/api" });
 
 export default boot(({ app }) => {
