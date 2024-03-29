@@ -18,7 +18,6 @@ export function baseNotify(
 
   if (actions) {
     option = {
-      ...options,
       timeout: 2000,
       progress: true,
       actions: [
@@ -32,9 +31,7 @@ export function baseNotify(
         {
           label: '확인',
           handler: () => {
-            if (callback) {
-              callback();
-            }
+            if (callback) callback();
           },
         },
       ],

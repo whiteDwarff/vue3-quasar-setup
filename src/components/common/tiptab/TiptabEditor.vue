@@ -9,29 +9,29 @@
 </template>
 
 <script setup>
-import { useEditor, EditorContent } from "@tiptap/vue-3";
-import StarterKit from "@tiptap/starter-kit";
-import Placeholder from "@tiptap/extension-placeholder";
-import Link from "@tiptap/extension-link";
-import Image from "@tiptap/extension-image";
-import { watch } from "vue";
-import TibTabEdirotMenu from "./TibTabEdirotMenu.vue";
+import { useEditor, EditorContent } from '@tiptap/vue-3';
+import StarterKit from '@tiptap/starter-kit';
+import Placeholder from '@tiptap/extension-placeholder';
+import Link from '@tiptap/extension-link';
+import Image from '@tiptap/extension-image';
+import { watch } from 'vue';
+import TibTabEdirotMenu from './TibTabEdirotMenu.vue';
 
 // 상위 컴포넌트에서 v-model을 통한 바인딩
 const props = defineProps({
   modelValue: {
     type: String,
-    default: "",
+    default: '',
   },
 });
-const emit = defineEmits(["update:modelValue"]);
+const emit = defineEmits(['update:modelValue']);
 
 const editor = useEditor({
   content: props.modelValue,
   extensions: [
     StarterKit,
     Placeholder.configure({
-      placeholder: "마크다운을 이용해서 편리하게 글을 작성하세요.",
+      placeholder: '마크다운을 이용해서 편리하게 글을 작성하세요.',
     }),
     Link,
     Image,
@@ -39,7 +39,7 @@ const editor = useEditor({
   // editor에 변화가 일어났을 때 ~
   // 사용자의 입력 등...
   onUpdate: () => {
-    emit("update:modelValue", editor.value.getHTML());
+    emit('update:modelValue', editor.value.getHTML());
   },
 });
 
@@ -78,7 +78,7 @@ watch(
 </style>
 <!-- 
 ❗️ component 호출 
-  - import TiptabEditor from 'src/components/tiptab/TiptabEditor.vue';
+  - import TiptabEditor from 'src/components//common/tiptab/TiptabEditor.vue';
 
 ❗️ component 사용
   - tiptab이 <form> 요새에 있는 경우 @submit.prevent 필수

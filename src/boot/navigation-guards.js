@@ -1,6 +1,6 @@
 import { storeToRefs } from 'pinia';
 import { boot } from 'quasar/wrappers';
-import { baseNotify } from 'src/utils/notify';
+import { baseNotify } from 'src/utils/index';
 // import { userAuthStore } from 'src/stores/auth';
 
 /*

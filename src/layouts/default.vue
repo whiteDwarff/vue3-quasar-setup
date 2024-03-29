@@ -4,8 +4,6 @@
     <q-header bordered class="bg-white text-grey-9">
       <q-toolbar> default </q-toolbar>
     </q-header>
-
-    <!-- q-page는 q-page-container의 -->
     <q-page-container>
       <router-view />
     </q-page-container>
