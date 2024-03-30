@@ -35,6 +35,8 @@
     "eslint-plugin-vue": "^9.14.1",
     "postcss": "^8.4.14",
     "prettier": "^2.8.8",
+    "unplugin-auto-import": "^0.17.5",
+    "unplugin-vue-components": "^0.26.0",
     "unplugin-vue-router": "^0.7.0",
     "vite-plugin-vue-layouts": "^0.8.0"
   },

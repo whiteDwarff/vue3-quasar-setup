@@ -1,5 +1,4 @@
 /* eslint-env node */
-
 /*
  * This file runs in a Node context (it's NOT transpiled by Babel), so use only
  * the ES6 features that are supported by your Node version. https://node.green/
@@ -53,7 +52,6 @@ module.exports = configure(function (/* ctx */) {
         browser: ['es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1'],
         node: 'node20',
       },
-
       /**
        * CSR : history
        * SSR : hash
@@ -96,6 +94,36 @@ module.exports = configure(function (/* ctx */) {
          * @doc   : https://github.com/whiteDwarff/vite-plugin-vue-layouts
          */
         ['vite-plugin-vue-layouts', {}],
+        /**
+         * @install : npm i -D unplugin-auto-import
+         * @dob     : https://github.com/unplugin/unplugin-auto-import?tab=readme-ov-file
+         */
+        [
+          'unplugin-auto-import/vite',
+          {
+            imports: [
+              // presets
+              'vue',
+              'vue-router',
+              '@vueuse/core',
+              'quasar',
+            ],
+            dirs: ['src/utils/**', 'src/boot/**'],
+          },
+        ],
+        [
+          'unplugin-vue-components/vite',
+          {
+            // 컴포넌트를 검색할 디렉토리의 상대 경로
+            dirs: ['src/components/**', 'src/pages/**'],
+            // 컴포넌트의 유효한 파일 확장자
+            extensions: ['vue'],
+            // 하위 디렉터리 검색
+            deep: true,
+            //프로젝트의 Vue 버전
+            version: 3,
+          },
+        ],
       ],
     },
 
