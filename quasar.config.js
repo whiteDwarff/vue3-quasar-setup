@@ -111,6 +111,10 @@ module.exports = configure(function (/* ctx */) {
             dirs: ['src/utils/**', 'src/boot/**'],
           },
         ],
+        /**
+         * @install : npm i unplugin-vue-components -D
+         * @dob     : https://github.com/unplugin/unplugin-vue-components
+         */
         [
           'unplugin-vue-components/vite',
           {
