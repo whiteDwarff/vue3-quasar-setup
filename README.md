@@ -17,7 +17,7 @@ npm run dev
 - [quasar@2.12.0](https://quasar.dev/)
 - [tiptab editor@2.2.4](https://tiptap.dev/docs/editor/installation/vue3)
 - [vueuse@10.9.0](https://vueuse.org/)
-- axios@1.2.1
+- [axios@1.2.1](https://axios-http.com/kr/docs/intro)
 
 ### Plugins
 
