@@ -22,27 +22,41 @@
       :disabled="!editor.can().chain().focus().toggleItalic().run()"
       :color="editor.isActive('italic') ? 'blue' : null"
     />
-    <q-btn
-      flat
-      dense
-      icon="sym_o_format_align_left"
-      @click="editor.chain().focus().setTextAlign('left').run()"
-      :color="editor.isActive({ textAlign: 'left' }) ? 'blue' : null"
-    />
-    <q-btn
-      flat
-      dense
-      icon="sym_o_format_align_center"
-      @click="editor.chain().focus().setTextAlign('center').run()"
-      :color="editor.isActive({ textAlign: 'center' }) ? 'blue' : null"
-    />
-    <q-btn
-      flat
-      dense
-      icon="sym_o_format_align_right"
-      @click="editor.chain().focus().setTextAlign('right').run()"
-      :color="editor.isActive({ textAlign: 'right' }) ? 'blue' : null"
-    />
+    <!-- text-align-->
+    <q-btn flat dense :icon="icon.align" color="blue">
+      <q-menu>
+        <q-btn
+          flat
+          dense
+          v-close-popup
+          icon="sym_o_format_align_left"
+          @click="
+            editor.chain().focus().setTextAlign('left').run(),
+              (icon.align = 'sym_o_format_align_left')
+          "
+        />
+        <q-btn
+          flat
+          dense
+          v-close-popup
+          icon="sym_o_format_align_center"
+          @click="
+            editor.chain().focus().setTextAlign('center').run(),
+              (icon.align = 'sym_o_format_align_center')
+          "
+        />
+        <q-btn
+          flat
+          dense
+          v-close-popup
+          icon="sym_o_format_align_right"
+          @click="
+            editor.chain().focus().setTextAlign('right').run(),
+              (icon.align = 'sym_o_format_align_right')
+          "
+        />
+      </q-menu>
+    </q-btn>
     <q-btn
       flat
       dense
@@ -149,6 +163,10 @@ const props = defineProps({
   editor: {
     type: Object,
   },
+});
+
+const icon = ref({
+  align: 'sym_o_format_align_left',
 });
 
 const handleLinkMenu = () => {
