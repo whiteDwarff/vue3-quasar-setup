@@ -1,5 +1,11 @@
 <template>
-  <div v-if="editor" class="flex q-pa-xs">
+  <div v-if="editor" class="flex items-center q-pa-xs">
+    <input
+      type="color"
+      @input="editor.chain().focus().setColor($event.target.value).run()"
+      :value="editor.getAttributes('textStyle').color || '#000000'"
+      style="width: 25px; height: 25px; cursor: pointer"
+    />
     <q-btn
       flat
       dense
@@ -15,6 +21,27 @@
       @click="editor.chain().focus().toggleItalic().run()"
       :disabled="!editor.can().chain().focus().toggleItalic().run()"
       :color="editor.isActive('italic') ? 'blue' : null"
+    />
+    <q-btn
+      flat
+      dense
+      icon="sym_o_format_align_left"
+      @click="editor.chain().focus().setTextAlign('left').run()"
+      :color="editor.isActive({ textAlign: 'left' }) ? 'blue' : null"
+    />
+    <q-btn
+      flat
+      dense
+      icon="sym_o_format_align_center"
+      @click="editor.chain().focus().setTextAlign('center').run()"
+      :color="editor.isActive({ textAlign: 'center' }) ? 'blue' : null"
+    />
+    <q-btn
+      flat
+      dense
+      icon="sym_o_format_align_right"
+      @click="editor.chain().focus().setTextAlign('right').run()"
+      :color="editor.isActive({ textAlign: 'right' }) ? 'blue' : null"
     />
     <q-btn
       flat
@@ -125,12 +152,12 @@ const props = defineProps({
 });
 
 const handleLinkMenu = () => {
-  if (props.editor.isActive("link")) {
+  if (props.editor.isActive('link')) {
     props.editor.chain().focus().unsetLink().run();
     return;
   }
-  const previousUrl = props.editor.getAttributes("link").href;
-  const url = window.prompt("URL", previousUrl);
+  const previousUrl = props.editor.getAttributes('link').href;
+  const url = window.prompt('URL', previousUrl);
 
   // cancelled
   if (url === null) {
@@ -138,8 +165,8 @@ const handleLinkMenu = () => {
   }
 
   // empty
-  if (url === "") {
-    props.editor.chain().focus().extendMarkRange("link").unsetLink().run();
+  if (url === '') {
+    props.editor.chain().focus().extendMarkRange('link').unsetLink().run();
 
     return;
   }
@@ -148,13 +175,13 @@ const handleLinkMenu = () => {
   props.editor
     .chain()
     .focus()
-    .extendMarkRange("link")
+    .extendMarkRange('link')
     .setLink({ href: url })
     .run();
 };
 
 const handleImageMenu = () => {
-  const url = window.prompt("URL");
+  const url = window.prompt('URL');
 
   if (url) {
     props.editor.chain().focus().setImage({ src: url }).run();
